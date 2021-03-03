@@ -1,0 +1,17 @@
+.style{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    background-color: lightpink;
+}
+.dialogsItems{
+    padding: 10px;
+}
+.dialog{
+
+}
+.messages{
+    padding: 10px;
+}
+.message{
+
+}

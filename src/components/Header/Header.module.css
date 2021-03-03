@@ -1,0 +1,7 @@
+.header{
+    grid-area: hhh;  /*псевдонім гріда*/
+    background-color: green;
+}
+.header img{
+    width: 50px;
+}
