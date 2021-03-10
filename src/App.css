@@ -18,9 +18,21 @@ app-wrapper-content{
 
 }
 
-
 /*----------------------------------*/
+@media screen and (max-width: 500px) {
+    .App-wrapper {
+        grid-template-rows: 5% 25% 1fr;
+        grid-template-columns: 2fr;
 
+        grid-template-areas:      /*по якому шаблону виставлені*/
+                "hhh"
+                "nnn"
+                "ccc";
+    }
+
+
+
+}
 
 
 

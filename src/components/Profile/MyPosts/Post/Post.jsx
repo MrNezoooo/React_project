@@ -5,8 +5,8 @@ const Post = (props) => {
     return  (<div className={classes.posts}>
                 <div className={`${classes.post} ${classes.item}`}>
                     <img src='https://avatarfiles.alphacoders.com/126/thumb-126082.jpg'/>
-                    <span>{props.message} Likes({props.likesCount})</span>
-                    <div><span>like</span></div>
+                    <span>{props.message}</span>
+                    <div><span>likes: {props.likesCount}</span></div>
                 </div>
              </div>);
 }

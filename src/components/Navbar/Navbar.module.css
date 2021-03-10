@@ -5,7 +5,7 @@ li {
 .nav{
     grid-area: nnn;
     background-color: burlywood;
-    padding: 20px;
+
 }
 .item a{
     color: white;
@@ -15,3 +15,22 @@ li {
 .item a.active{
      color: gold;
  }
+
+.users{
+    background-color: lightpink;
+    color: white;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 7px; /*відстань між елементами*/
+
+    justify-self: center;
+    align-self: center;
+}
+
+.span{
+    text-align: center;
+    color: white;
+}
+
