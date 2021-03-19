@@ -10,7 +10,7 @@ import Dialogs from './components/Dialogs/Dialogs.jsx';
 import News from './components/News/News.jsx';
 import PlayList from './components/PlayList/PlayList.jsx';
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
-import {addPost} from "./redux/state";
+import {addPost, updateNewPostText} from "./redux/state";
 
 /*  ----UI React----  */
 
@@ -27,7 +27,7 @@ const App = (props) =>  {
                         <Route path='/dialogs' component={Dialogs} /> */}{/* <Route exact - співпадіння тоді тільки точне  */}
 
                         <Route path='/profile'
-                               render={ () => <Profile  postsThreeLevel={props.appState.profile.postData} addPostThird={props.addPostSecond}/> } />
+                               render={ () => <Profile  postsThreeLevel={props.appState.profile.postData}  SecondNewPostText={props.appState.profile.NewPostText} dispatch={props.dispatch}/*addPostThird={props.addPostSecond} updateNewPostText={props.updateNewPostText}*/ /> } />
                         <Route path='/dialogs'
                                render={ () => <Dialogs dialogsThreeLevel={props.appState.dialogs.dialogsData} messagesThreeLevel={props.appState.dialogs.messagesData} /> } /> {/* передаємо анонімну функцію  */}
                         <Route path='/news' component={News} />

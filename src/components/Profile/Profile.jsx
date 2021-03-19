@@ -15,7 +15,7 @@ const Profile = (props) => {
                  {/*    <MyPosts message='Hello' likesCount='3' />
                      <MyPosts message='Hello' likesCount='3' />*/}
 
-                    <MyPosts postsTwoLevel={props.postsThreeLevel} addPostFourth ={props.addPostThird}/>
+                    <MyPosts postsTwoLevel={props.postsThreeLevel}  FirstNewPostText={props.SecondNewPostText}  dispatch={props.dispatch}/*addPostFourth ={props.addPostThird} updateNewPostText={props.updateNewPostText}*/ />
 
                 </div>);
 }
