@@ -29,7 +29,7 @@ const App = (props) =>  {
                         <Route path='/profile'
                                render={ () => <Profile  postsThreeLevel={props.appState.profile.postData}  SecondNewPostText={props.appState.profile.NewPostText} dispatch={props.dispatch}/*addPostThird={props.addPostSecond} updateNewPostText={props.updateNewPostText}*/ /> } />
                         <Route path='/dialogs'
-                               render={ () => <Dialogs dialogsThreeLevel={props.appState.dialogs.dialogsData} messagesThreeLevel={props.appState.dialogs.messagesData} /> } /> {/* передаємо анонімну функцію  */}
+                               render={ () => <Dialogs store={props.store} /*NewMessageBody={props.appState.dialogs.NewMessageBody}  dialogsThreeLevel={props.appState.dialogs.dialogsData} messagesThreeLevel={props.appState.dialogs.messagesData} dispatch={props.dispatch}*//> } /> {/* передаємо анонімну функцію  */}
                         <Route path='/news' component={News} />
                         <Route path='/music' render={ () => <PlayList /> } />
                     </div>

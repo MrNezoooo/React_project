@@ -1,6 +1,9 @@
-
+/*  MyPosts */
 const ADD_POST = 'ADD_POST'; //для того щоб відловити неправельне введеня назви
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+/* Dialogs */
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 //===================OOP============================================
 let store = {
     getState(){  //метод вертає нам  _state на зовню
@@ -32,6 +35,8 @@ let store = {
                 {id:1, message:'How are You'},
                 {id:2, message:'Yo!'}
             ],
+            /* Dialogs */
+            NewMessageBody: ''
         },
 
         /* Sidebar  */
@@ -91,6 +96,17 @@ let store = {
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.profile.NewPostText = action.newText;  //action бо приходять запханий текст з зовні
             this._renderEntireTree(this._state); //перемальвуємо все дерево
+
+            /* Dialogs */
+        } else if (action.type === 'UPDATE_NEW_MESSAGE_BODY') {
+            this._state.dialogs.NewMessageBody = action.body; //буде рівне тому що прийде з зовнішнього світу
+            this._renderEntireTree(this._state); //перемальвуємо все дерево
+
+        } else if (action.type === 'SEND_MESSAGE') {
+            let body = this._state.dialogs.NewMessageBody; //взяти то що записано в 'UPDATE_NEW_MESSAGE_BODY' присвоюєм йому назву body
+            this._state.dialogs.NewMessageBody = ''; //зануляєм щоб строка стала пуста
+            this._state.dialogs.messagesData.push({id:777, message: body}); //зкопіюєм структуру messagesData: {id:1, message:'How are You'},
+            this._renderEntireTree(this._state);
         }
     },
 
@@ -109,8 +125,18 @@ export const updateNewPostTextActionCreator = (text) => {  //цю функцію
         type: 'UPDATE-NEW-POST-TEXT', newText: text
     }
 };
-/*-------------/ action creator---------------*/
 
+/* Dialogs */
+export const sendMessageCreator = () => {
+    return {
+        type: 'SEND_MESSAGE'
+    }
+}
+export const updateNewMessageBodyCreator = (body) => {
+    return ({
+        type: 'UPDATE_NEW_MESSAGE_BODY', body: body  // приходить action.body; А локальна перемінна bodyrock
+    });
+}
 
 export default store;
 //========================STATE=====================================

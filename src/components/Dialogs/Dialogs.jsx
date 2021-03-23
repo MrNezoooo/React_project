@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 
 import Message from "./Message/Message.jsx";
 import DialogItem from "./DialogItem/DialogItem.jsx";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/state";
 
 
 /*Емітація бази данних*/
@@ -34,31 +35,48 @@ const newMessage =
 
 const Dialogs = (props) => {
 
+    let state = props.store.getState().dialogs;
+
     let newArray =
-            props.dialogsThreeLevel.map(dialog =>
+        state.dialogsData.map(dialog =>
                      <DialogItem name={dialog.name} id={dialog.id} /> );
 
     let newMessage =
-            props.messagesThreeLevel.map(message =>
+        state.messagesData.map(message =>
                     <Message message={message.message} /> );
 
-    /*---------------------------*/
-    let newMessageElement = React.createRef();
 
-    let addMessage = () => {
-        let text = newMessageElement.current.value;
-        alert(text);
-    }
+    // **2**
+    let newMessageBody = state.newMessageBody; // весть текст приходить з пропсів
+    /*---------------------------*/
+
+    // **1**
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator()) // викликаєм action creator sendMessageCreator
+    };
+
+    // **3**
+    let onNewMessageChange = (event) => {  //onChang сюди засовує обєкт події event
+        let body = event.target.value; // достукаємось до обєкта з добомогою target і взяти вньго значення value
+        props.store.dispatch(updateNewMessageBodyCreator(body)) // тепер викликаєм action creator відправляємо це  body в бізнес
+    };
+
+
+
+
+   let newMessageElement = React.createRef();
+
+
     /*---------------------------*/
     return       (
                         <div className={classes.style}>
                             <h3>Відписати:</h3>
                             <div>
                                 <div>
-                                    <textarea ref={newMessageElement}></textarea>
-                                </div>
+                                    <textarea ref={newMessageElement} value={newMessageBody} onChange={onNewMessageChange}></textarea> {/* **2**value= **3**onChange */}
+                                </div> {/*onChange = event (value) */}
                                 <div>
-                                    <button onClick={ addMessage }>Send Message</button>
+                                    <button onClick = { onSendMessageClick }>Send Message</button>
                                 </div>
                             </div>
                              {/*-------dialogs------------*/}

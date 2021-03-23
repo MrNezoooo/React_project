@@ -4,6 +4,9 @@ import {NavLink} from "react-router-dom";
 import Post from "../Profile/MyPosts/Post/Post";
 import User from './User/User.jsx'
 
+
+
+// ЩОБ ВІДБУВАЛАСЯ ЗМІНА УРЛІВ БЕЗ ПЕРЕЗАГРУЗКИ СТОРІНКИ ВИКОРИСТОВУЮТЬ NavLink
 const Navbar = (props) => {
 
     let allUsers = props.usersTwoLevel.map

@@ -37,7 +37,7 @@ let renderEntireTree = () => { //перемальвка всієї прелож�
         </React.StrictMode>,*/
 
         <React.StrictMode>
-            <App  appState={store.getState()} dispatch={store.dispatch.bind(store)} />  {/*bind(store) вказуєм(привязуєм) імя автора від якого ми передаємо його дальше вглубину*/}
+            <App  appState={store.getState()} dispatch={store.dispatch.bind(store)} store={store} />  {/*bind(store) вказуєм(привязуєм) імя автора від якого ми передаємо його дальше вглубину*/}
         </React.StrictMode>,
 
 
