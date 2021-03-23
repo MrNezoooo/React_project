@@ -3,7 +3,7 @@ import classes from './MyPosts.module.css'
 import Post from "./Post/Post.jsx";
 /*---------------------------*/
 import Profil from "../Profile";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state"; //іімпорт action creator
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer"; //іімпорт action creator
 
 /*Емітація бази данних*/
 /*Лежить в INDEX.JS -  BLL (bisines logic Layer) REDUX*/
